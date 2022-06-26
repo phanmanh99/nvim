@@ -49,6 +49,11 @@ map('i', '<leader>s', '<C-c>:w<CR>')
 -- Close all windows and exit from Neovim with <leader> and q
 map('n', '<leader>q', ':qa!<CR>')
 
+
+--Terminal
+map('n', '<C-t>', ':terminal<CR>')
+map('t', '<ESC>', '<C-\\><C-n>', {noremap = true})
+
 -----------------------------------------------------------
 -- Applications and Plugins shortcuts
 -----------------------------------------------------------

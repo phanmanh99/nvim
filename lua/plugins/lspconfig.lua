@@ -18,12 +18,28 @@ if not cmp_status_ok then
   return
 end
 
+local lsp_status_ok, nvim_lsp_installer = pcall(require, 'nvim-lsp-installer')
+if not cmp_status_ok then
+  return
+end
+
+nvim_lsp_installer.setup ({
+  automatic_installation = true, -- automatically detect which servers to install (based on which servers are set up via lspconfig)
+  ui = {
+    icons = {
+      server_installed = "✓",
+      server_pending = "➜",
+      server_uninstalled = "✗"
+    }
+  }
+})
+
 -- Diagnostic options, see: `:help vim.diagnostic.config`
 vim.diagnostic.config({ virtual_text = true })
 
 -- Show line diagnostics automatically in hover window
 vim.cmd([[
-  autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, { focus = false })
+autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, { focus = false })
 ]])
 
 -- Add additional capabilities supported by nvim-cmp
@@ -50,17 +66,17 @@ capabilities.textDocument.completion.completionItem.resolveSupport = {
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
 local on_attach = function(client, bufnr)
-  local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
-  local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
+local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
+local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
 
   -- Highlighting references
   if client.resolved_capabilities.document_highlight then
     vim.api.nvim_exec([[
-      augroup lsp_document_highlight
-        autocmd! * <buffer>
-        autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
-        autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
-      augroup END
+    augroup lsp_document_highlight
+    autocmd! * <buffer>
+    autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
+    autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
+    augroup END
     ]], false)
   end
 
@@ -95,46 +111,46 @@ end
 Language servers setup:
 
 For language servers list see:
-https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
+  https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
 
-Bash --> bashls
-https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#bashls
+  Bash --> bashls
+  https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#bashls
 
-Python --> pyright
-https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#pyright
+  Python --> pyright
+  https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#pyright
 
-C-C++ --> clangd
-https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#clangd
+  C-C++ --> clangd
+  https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#clangd
 
-HTML/CSS/JSON --> vscode-html-languageserver
-https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#html
+  HTML/CSS/JSON --> vscode-html-languageserver
+  https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#html
 
-JavaScript/TypeScript --> tsserver
-https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#tsserver
+  JavaScript/TypeScript --> tsserver
+  https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#tsserver
 
---]]
+  --]]
 
--- Define `root_dir` when needed
--- See: https://github.com/neovim/nvim-lspconfig/issues/320
--- This is a workaround, maybe not work with some servers.
-local root_dir = function()
-  return vim.fn.getcwd()
-end
+  -- Define `root_dir` when needed
+  -- See: https://github.com/neovim/nvim-lspconfig/issues/320
+  -- This is a workaround, maybe not work with some servers.
+  local root_dir = function()
+    return vim.fn.getcwd()
+  end
 
--- Use a loop to conveniently call 'setup' on multiple servers and
--- map buffer local keybindings when the language server attaches.
--- Add your language server below:
-local servers = { 'clangd', 'html', 'cssls', 'tsserver', 'dockerls', 'dotls', 'intelephense' }
+  -- Use a loop to conveniently call 'setup' on multiple servers and
+  -- map buffer local keybindings when the language server attaches.
+  -- Add your language server below:
+  local servers = { 'clangd', 'html', 'cssls', 'tsserver', 'dockerls', 'dotls', 'intelephense', 'sumneko_lua', 'yamlls' }
 
--- Call setup
-for _, lsp in ipairs(servers) do
-  lspconfig[lsp].setup {
-    on_attach = on_attach,
-    root_dir = root_dir,
-    capabilities = capabilities,
-    flags = {
-      -- default in neovim 0.7+
-      debounce_text_changes = 150,
+  -- Call setup
+  for _, lsp in ipairs(servers) do
+    lspconfig[lsp].setup {
+      on_attach = on_attach,
+      root_dir = root_dir,
+      capabilities = capabilities,
+      flags = {
+        -- default in neovim 0.7+
+        debounce_text_changes = 150,
+      }
     }
-  }
-end
+  end

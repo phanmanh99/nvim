@@ -61,7 +61,15 @@ return packer.startup(function(use)
   use "lukas-reineke/indent-blankline.nvim"
 
   -- LSP
-  use 'neovim/nvim-lspconfig' -- Configurations for Nvim LSP
+  use {
+    'williamboman/nvim-lsp-installer',
+    'neovim/nvim-lspconfig',
+    config = lua_path('lspconfig')
+  }-- Configurations for Nvim LSP
+  use {
+    "ray-x/lsp_signature.nvim",
+    config = lua_path('signature')
+  }
 
   -- Autocomplete
   use {
@@ -72,8 +80,10 @@ return packer.startup(function(use)
       'hrsh7th/cmp-path',
       'hrsh7th/cmp-buffer',
       'saadparwaiz1/cmp_luasnip',
+      'petertriho/cmp-git',
     },
   }
+
   -- AutoPairs
   use 'windwp/nvim-autopairs'
 
@@ -81,13 +91,25 @@ return packer.startup(function(use)
   use 'nelsyeung/twig.vim'
 
   -- Dashboard
-  use 'goolord/alpha-nvim'
+  use {
+    'goolord/alpha-nvim',
+    config = lua_path('alpha-nvim')
+  }
 
   -- Telescope
   use {
     'nvim-telescope/telescope.nvim',
-    requires = { {'nvim-lua/plenary.nvim'} }
+    requires = { {'nvim-lua/plenary.nvim'} },
+    config = lua_path('telescope')
   }
+
+  --Git
+  use {
+  'lewis6991/gitsigns.nvim',
+  config = lua_path('gitsigns')
+}
+
+  --Syntax
 
   --Tag viewer
   use 'preservim/tagbar'
