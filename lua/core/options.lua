@@ -33,6 +33,7 @@ opt.list = true            -- show space and tabs chars
 opt.listchars = "eol:⏎,tab:▸·,trail:×,nbsp:⎵"  -- make tab, etc visible
 opt.spelllang = "en_us"
 opt.sessionoptions = "buffers,curdir,folds,help,tabpages,winsize,winpos,terminal"
+opt.completeopt = "menuone,noselect"
 
 -- prefer `industry` color scheme
 cmd [[

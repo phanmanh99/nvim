@@ -18,22 +18,6 @@ if not cmp_status_ok then
   return
 end
 
-local lsp_status_ok, nvim_lsp_installer = pcall(require, 'nvim-lsp-installer')
-if not cmp_status_ok then
-  return
-end
-
-nvim_lsp_installer.setup ({
-  automatic_installation = true, -- automatically detect which servers to install (based on which servers are set up via lspconfig)
-  ui = {
-    icons = {
-      server_installed = "✓",
-      server_pending = "➜",
-      server_uninstalled = "✗"
-    }
-  }
-})
-
 -- Diagnostic options, see: `:help vim.diagnostic.config`
 vim.diagnostic.config({ virtual_text = true })
 

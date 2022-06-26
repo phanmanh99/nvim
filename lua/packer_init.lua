@@ -56,24 +56,41 @@ return packer.startup(function(use)
   }
 
   -- Treesitter interface
-  use 'nvim-treesitter/nvim-treesitter'
+  use {
+    'nvim-treesitter/nvim-treesitter',
+    config = lua_path('treesitter')
+  }
 
   -- NeovimTree - A File Explorer For Neovim Written In Lua
   use 'kyazdani42/nvim-web-devicons' -- optional, for file icons
-  use 'kyazdani42/nvim-tree.lua'
+  use {
+    'kyazdani42/nvim-tree.lua',
+    config = lua_path('tree'),
+  }
 
   -- BlankLine
-  use "lukas-reineke/indent-blankline.nvim"
+  use {
+    "lukas-reineke/indent-blankline.nvim",
+    config = lua_path('blankline'),
+  }
 
   -- LSP
   use {
     'williamboman/nvim-lsp-installer',
+    config = lua_path('lsp-installer'),
+  }
+  use {
     'neovim/nvim-lspconfig',
     config = lua_path('lspconfig')
-  }-- Configurations for Nvim LSP
+  }
   use {
     "ray-x/lsp_signature.nvim",
     config = lua_path('signature')
+  }
+  use 'tamago324/nlsp-settings.nvim'
+  use {
+    'jose-elias-alvarez/null-ls.nvim',
+    config = lua_path('null-ls'),
   }
 
   -- Autocomplete
@@ -86,11 +103,24 @@ return packer.startup(function(use)
       'hrsh7th/cmp-buffer',
       'saadparwaiz1/cmp_luasnip',
       'petertriho/cmp-git',
+      'hrsh7th/cmp-cmdline'
     },
+    config = lua_path('cmp'),
   }
 
   -- AutoPairs
-  use 'windwp/nvim-autopairs'
+  use {
+    'windwp/nvim-autopairs',
+    config = lua_path('autopairs'),
+  }
+
+  -- Comment
+  use {
+    'numToStr/Comment.nvim',
+    config = function()
+      require('Comment').setup()
+    end
+  }
 
   -- Twig
   use 'nelsyeung/twig.vim'
@@ -110,9 +140,9 @@ return packer.startup(function(use)
 
   --Git
   use {
-  'lewis6991/gitsigns.nvim',
-  config = lua_path('gitsigns')
-}
+    'lewis6991/gitsigns.nvim',
+    config = lua_path('gitsigns')
+  }
 
   --Syntax
 

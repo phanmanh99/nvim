@@ -18,7 +18,7 @@ nvim_treesitter.setup {
     'php', 'css', 'html', 'javascript', 'vue', 'json', 'lua', 'typescript', 'vim'
   },
   -- Install parsers synchronously (only applied to `ensure_installed`)
-  sync_install = false,
+  sync_install = true,
   highlight = {
     -- `false` will disable the whole extension
     enable = true,
