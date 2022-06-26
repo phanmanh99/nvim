@@ -41,6 +41,11 @@ end
 
 -- Install plugins
 return packer.startup(function(use)
+  -- Load lua path
+  local lua_path = function(name)
+    return string.format("require'plugins.%s'", name)
+  end
+
   -- Add you plugins here:
   use 'wbthomason/packer.nvim' -- packer can manage itself
 
