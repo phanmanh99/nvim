@@ -24,7 +24,7 @@ map('', '<left>', '<nop>')
 map('', '<right>', '<nop>')
 
 -- Map Esc to kk
-map('i', 'kk', '<Esc>')
+-- map('i', 'kk', '<Esc>')
 
 -- Clear search highlighting with <leader> and c
 map('n', '<leader>c', ':nohl<CR>')
@@ -42,18 +42,12 @@ map('n', '<C-l>', '<C-w>l')
 -- Reload configuration without restart nvim
 map('n', '<leader>r', ':so %<CR>')
 
--- Fast saving with <leader> and s
-map('n', '<leader>s', ':w<CR>')
-map('i', '<leader>s', '<C-c>:w<CR>')
-
 -- Close all windows and exit from Neovim with <leader> and q
 map('n', '<leader>q', ':qa!<CR>')
-
 
 --Terminal
 map('n', '<C-t>', ':terminal<CR>')
 map('t', '<ESC>', '<C-\\><C-n>', {noremap = true})
-
 -----------------------------------------------------------
 -- Applications and Plugins shortcuts
 -----------------------------------------------------------
@@ -64,6 +58,10 @@ map('n', '<leader>m', ':NvimTreeFindFile<CR>')      -- search file
 
 -- Telescope
 map('n', '<C-p>', "<cmd>lua require('telescope.builtin').find_files()<cr>")
+map('n', '<leader>ff', "<cmd>lua require('telescope.builtin').find_files()<CR>")
+map('n', '<leader>fg', "<cmd>lua require('telescope.builtin').live_grep()<CR>")
+map('n', '<leader>fb', "<cmd>lua require('telescope.builtin').buffers()<CR>")
+map('n', '<leader>fh', "<cmd>lua require('telescope.builtin').help_tags()<CR>")
 
 -- Tag viewer
 map('', '<leader>n', ':TagbarToggle<CR>')

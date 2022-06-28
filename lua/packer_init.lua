@@ -9,7 +9,6 @@
 -- neovim-lua/README.md
 -- https://github.com/brainfucksec/neovim-lua#readme
 
-
 -- Automatically install packer
 local fn = vim.fn
 local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
@@ -52,7 +51,8 @@ return packer.startup(function(use)
   -- lualine
   use {
     'nvim-lualine/lualine.nvim',
-    requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+    requires = { 'kyazdani42/nvim-web-devicons', opt = true },
+    config = lua_path('lualine'),
   }
 
   -- Treesitter interface
@@ -122,19 +122,10 @@ return packer.startup(function(use)
     end
   }
 
-  -- Twig
-  use 'nelsyeung/twig.vim'
-
-  -- Dashboard
-  use {
-    'goolord/alpha-nvim',
-    config = lua_path('alpha-nvim')
-  }
-
   -- Telescope
   use {
     'nvim-telescope/telescope.nvim',
-    requires = { {'nvim-lua/plenary.nvim'} },
+    requires = { { 'nvim-lua/plenary.nvim' } },
     config = lua_path('telescope')
   }
 
@@ -144,15 +135,34 @@ return packer.startup(function(use)
     config = lua_path('gitsigns')
   }
 
-  --Syntax
+  -- Twig
+  use 'nelsyeung/twig.vim'
 
-  --Tag viewer
+  -- Dashboard
+  use {
+    'goolord/alpha-nvim',
+    config = lua_path('alpha-nvim'),
+  }
+
+  -- Syntax
+
+  -- Tab bar
+  use {
+    'romgrk/barbar.nvim',
+    requires = { 'kyazdani42/nvim-web-devicons' },
+    config = lua_path('bartab'),
+  }
+
+  -- Tag viewer
   use 'preservim/tagbar'
 
-  -- Theme dracula
+  -- Theme
+  use 'Mofiqul/dracula.nvim'
   use {
-    'Mofiqul/dracula.nvim'
+    'folke/tokyonight.nvim',
+    config = lua_path('tokyonight'),
   }
+
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if packer_bootstrap then

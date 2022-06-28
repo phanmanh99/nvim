@@ -23,8 +23,8 @@ opt.signcolumn = "yes"     -- Always show sign column
 opt.expandtab = true       -- use space instead of tab by default
 opt.tabstop = 2            -- use space instead of tab by default
 opt.softtabstop = 2        -- use space instead of tab by default
-opt.shiftwidth = 2       -- use space instead of tab by default
-opt.autoindent = true       -- use space instead of tab by default
+opt.shiftwidth = 2         -- use space instead of tab by default
+opt.autoindent = true      -- use space instead of tab by default
 opt.showmode = false       -- Do not need to show the mode. We use the statusline instead.
 opt.showmatch = true       -- highlight matching brackets
 opt.cursorline = true      -- show cursor line
@@ -39,5 +39,4 @@ opt.completeopt = "menuone,noselect"
 cmd [[
   set noswapfile
   syntax enable
-  colorscheme dracula
 ]]
