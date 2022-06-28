@@ -238,34 +238,14 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: nvim-tree.lua
-time([[Config for nvim-tree.lua]], true)
-require'plugins.tree'
-time([[Config for nvim-tree.lua]], false)
--- Config for: Comment.nvim
-time([[Config for Comment.nvim]], true)
-try_loadstring("\27LJ\2\n5\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\fComment\frequire\0", "config", "Comment.nvim")
-time([[Config for Comment.nvim]], false)
--- Config for: gitsigns.nvim
-time([[Config for gitsigns.nvim]], true)
-require'plugins.gitsigns'
-time([[Config for gitsigns.nvim]], false)
--- Config for: nvim-treesitter
-time([[Config for nvim-treesitter]], true)
-require'plugins.treesitter'
-time([[Config for nvim-treesitter]], false)
--- Config for: nvim-autopairs
-time([[Config for nvim-autopairs]], true)
-require'plugins.autopairs'
-time([[Config for nvim-autopairs]], false)
 -- Config for: indent-blankline.nvim
 time([[Config for indent-blankline.nvim]], true)
 require'plugins.blankline'
 time([[Config for indent-blankline.nvim]], false)
--- Config for: alpha-nvim
-time([[Config for alpha-nvim]], true)
-require'plugins.alpha-nvim'
-time([[Config for alpha-nvim]], false)
+-- Config for: nvim-lsp-installer
+time([[Config for nvim-lsp-installer]], true)
+require'plugins.lsp-installer'
+time([[Config for nvim-lsp-installer]], false)
 -- Config for: nvim-cmp
 time([[Config for nvim-cmp]], true)
 require'plugins.cmp'
@@ -274,10 +254,10 @@ time([[Config for nvim-cmp]], false)
 time([[Config for lsp_signature.nvim]], true)
 require'plugins.signature'
 time([[Config for lsp_signature.nvim]], false)
--- Config for: tokyonight.nvim
-time([[Config for tokyonight.nvim]], true)
-require'plugins.tokyonight'
-time([[Config for tokyonight.nvim]], false)
+-- Config for: gitsigns.nvim
+time([[Config for gitsigns.nvim]], true)
+require'plugins.gitsigns'
+time([[Config for gitsigns.nvim]], false)
 -- Config for: barbar.nvim
 time([[Config for barbar.nvim]], true)
 require'plugins.bartab'
@@ -286,22 +266,42 @@ time([[Config for barbar.nvim]], false)
 time([[Config for lualine.nvim]], true)
 require'plugins.lualine'
 time([[Config for lualine.nvim]], false)
--- Config for: nvim-lsp-installer
-time([[Config for nvim-lsp-installer]], true)
-require'plugins.lsp-installer'
-time([[Config for nvim-lsp-installer]], false)
+-- Config for: Comment.nvim
+time([[Config for Comment.nvim]], true)
+try_loadstring("\27LJ\2\n5\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\fComment\frequire\0", "config", "Comment.nvim")
+time([[Config for Comment.nvim]], false)
 -- Config for: nvim-lspconfig
 time([[Config for nvim-lspconfig]], true)
 require'plugins.lspconfig'
 time([[Config for nvim-lspconfig]], false)
--- Config for: null-ls.nvim
-time([[Config for null-ls.nvim]], true)
-require'plugins.null-ls'
-time([[Config for null-ls.nvim]], false)
+-- Config for: alpha-nvim
+time([[Config for alpha-nvim]], true)
+require'plugins.alpha-nvim'
+time([[Config for alpha-nvim]], false)
 -- Config for: telescope.nvim
 time([[Config for telescope.nvim]], true)
 require'plugins.telescope'
 time([[Config for telescope.nvim]], false)
+-- Config for: nvim-tree.lua
+time([[Config for nvim-tree.lua]], true)
+require'plugins.tree'
+time([[Config for nvim-tree.lua]], false)
+-- Config for: null-ls.nvim
+time([[Config for null-ls.nvim]], true)
+require'plugins.null-ls'
+time([[Config for null-ls.nvim]], false)
+-- Config for: tokyonight.nvim
+time([[Config for tokyonight.nvim]], true)
+require'plugins.tokyonight'
+time([[Config for tokyonight.nvim]], false)
+-- Config for: nvim-treesitter
+time([[Config for nvim-treesitter]], true)
+require'plugins.treesitter'
+time([[Config for nvim-treesitter]], false)
+-- Config for: nvim-autopairs
+time([[Config for nvim-autopairs]], true)
+require'plugins.autopairs'
+time([[Config for nvim-autopairs]], false)
 if should_profile then save_profiles() end
 
 end)

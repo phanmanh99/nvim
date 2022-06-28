@@ -33,3 +33,21 @@ require('telescope').setup {
     -- please take a look at the readme of the extension you want to configure
   }
 }
+
+local function map(mode, lhs, rhs, opts)
+  local options = { noremap = true, silent = true }
+  if opts then
+    options = vim.tbl_extend('force', options, opts)
+  end
+  vim.api.nvim_set_keymap(mode, lhs, rhs, options)
+end
+
+-- Telescope
+map('n', '<C-p>', "<cmd>lua require('telescope.builtin').find_files()<cr>")
+map('n', '<leader>ff', "<cmd>lua require('telescope.builtin').find_files()<CR>")
+map('n', '<leader>fg', "<cmd>lua require('telescope.builtin').live_grep()<CR>")
+map('n', '<leader>fb', "<cmd>lua require('telescope.builtin').buffers()<CR>")
+map('n', '<leader>fh', "<cmd>lua require('telescope.builtin').help_tags()<CR>")
+map('n', '<leader>gcm', "<cmd>lua require('telescope.builtin').git_commits()<CR>")
+map('n', '<leader>gbr', "<cmd>lua require('telescope.builtin').git_branches()<CR>")
+map('n', '<leader>gst', "<cmd>lua require('telescope.builtin').git_status()<CR>")

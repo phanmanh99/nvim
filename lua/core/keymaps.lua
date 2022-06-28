@@ -56,12 +56,5 @@ map('t', '<ESC>', '<C-\\><C-n>', { noremap = true })
 map('n', '<C-n>', ':NvimTreeToggle<CR>') -- open/close
 map('n', '<leader>m', ':NvimTreeFindFile<CR>') -- search file
 
--- Telescope
-map('n', '<C-p>', "<cmd>lua require('telescope.builtin').find_files()<cr>")
-map('n', '<leader>ff', "<cmd>lua require('telescope.builtin').find_files()<CR>")
-map('n', '<leader>fg', "<cmd>lua require('telescope.builtin').live_grep()<CR>")
-map('n', '<leader>fb', "<cmd>lua require('telescope.builtin').buffers()<CR>")
-map('n', '<leader>fh', "<cmd>lua require('telescope.builtin').help_tags()<CR>")
-
 -- Tag viewer
 map('', '<leader>n', ':TagbarToggle<CR>')
