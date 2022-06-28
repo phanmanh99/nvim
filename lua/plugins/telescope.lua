@@ -3,7 +3,7 @@ if not status_ok then
   return
 end
 
-require('telescope').setup{
+require('telescope').setup {
   defaults = {
     -- Default configuration for telescope goes here:
     -- config_key = value,

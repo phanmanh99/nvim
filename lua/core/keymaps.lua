@@ -47,14 +47,14 @@ map('n', '<leader>q', ':qa!<CR>')
 
 --Terminal
 map('n', '<C-t>', ':terminal<CR>')
-map('t', '<ESC>', '<C-\\><C-n>', {noremap = true})
+map('t', '<ESC>', '<C-\\><C-n>', { noremap = true })
 -----------------------------------------------------------
 -- Applications and Plugins shortcuts
 -----------------------------------------------------------
 
 -- NvimTree
-map('n', '<C-n>', ':NvimTreeToggle<CR>')        -- open/close
-map('n', '<leader>m', ':NvimTreeFindFile<CR>')      -- search file
+map('n', '<C-n>', ':NvimTreeToggle<CR>') -- open/close
+map('n', '<leader>m', ':NvimTreeFindFile<CR>') -- search file
 
 -- Telescope
 map('n', '<C-p>', "<cmd>lua require('telescope.builtin').find_files()<cr>")
