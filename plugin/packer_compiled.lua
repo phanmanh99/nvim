@@ -139,8 +139,13 @@ _G.packer_plugins = {
     path = "/Users/manhphan/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim",
     url = "https://github.com/lukas-reineke/indent-blankline.nvim"
   },
+  ["lazygit.nvim"] = {
+    loaded = true,
+    path = "/Users/manhphan/.local/share/nvim/site/pack/packer/start/lazygit.nvim",
+    url = "https://github.com/kdheepak/lazygit.nvim"
+  },
   ["lsp_signature.nvim"] = {
-    config = { "require'plugins.signature'" },
+    config = { "require'plugins.LSP/signature'" },
     loaded = true,
     path = "/Users/manhphan/.local/share/nvim/site/pack/packer/start/lsp_signature.nvim",
     url = "https://github.com/ray-x/lsp_signature.nvim"
@@ -157,7 +162,7 @@ _G.packer_plugins = {
     url = "https://github.com/tamago324/nlsp-settings.nvim"
   },
   ["null-ls.nvim"] = {
-    config = { "require'plugins.null-ls'" },
+    config = { "require'plugins.LSP/null-ls'" },
     loaded = true,
     path = "/Users/manhphan/.local/share/nvim/site/pack/packer/start/null-ls.nvim",
     url = "https://github.com/jose-elias-alvarez/null-ls.nvim"
@@ -175,13 +180,13 @@ _G.packer_plugins = {
     url = "https://github.com/hrsh7th/nvim-cmp"
   },
   ["nvim-lsp-installer"] = {
-    config = { "require'plugins.lsp-installer'" },
+    config = { "require'plugins.LSP/lsp-installer'" },
     loaded = true,
     path = "/Users/manhphan/.local/share/nvim/site/pack/packer/start/nvim-lsp-installer",
     url = "https://github.com/williamboman/nvim-lsp-installer"
   },
   ["nvim-lspconfig"] = {
-    config = { "require'plugins.lspconfig'" },
+    config = { "require'plugins.LSP/lspconfig'" },
     loaded = true,
     path = "/Users/manhphan/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
     url = "https://github.com/neovim/nvim-lspconfig"
@@ -213,6 +218,12 @@ _G.packer_plugins = {
     path = "/Users/manhphan/.local/share/nvim/site/pack/packer/start/plenary.nvim",
     url = "https://github.com/nvim-lua/plenary.nvim"
   },
+  ["scrollbar.nvim"] = {
+    config = { "require'plugins.scrollbar'" },
+    loaded = true,
+    path = "/Users/manhphan/.local/share/nvim/site/pack/packer/start/scrollbar.nvim",
+    url = "https://github.com/Xuyuanp/scrollbar.nvim"
+  },
   tagbar = {
     loaded = true,
     path = "/Users/manhphan/.local/share/nvim/site/pack/packer/start/tagbar",
@@ -238,22 +249,30 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: indent-blankline.nvim
-time([[Config for indent-blankline.nvim]], true)
-require'plugins.blankline'
-time([[Config for indent-blankline.nvim]], false)
--- Config for: nvim-lsp-installer
-time([[Config for nvim-lsp-installer]], true)
-require'plugins.lsp-installer'
-time([[Config for nvim-lsp-installer]], false)
 -- Config for: nvim-cmp
 time([[Config for nvim-cmp]], true)
 require'plugins.cmp'
 time([[Config for nvim-cmp]], false)
--- Config for: lsp_signature.nvim
-time([[Config for lsp_signature.nvim]], true)
-require'plugins.signature'
-time([[Config for lsp_signature.nvim]], false)
+-- Config for: Comment.nvim
+time([[Config for Comment.nvim]], true)
+try_loadstring("\27LJ\2\n5\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\fComment\frequire\0", "config", "Comment.nvim")
+time([[Config for Comment.nvim]], false)
+-- Config for: nvim-treesitter
+time([[Config for nvim-treesitter]], true)
+require'plugins.treesitter'
+time([[Config for nvim-treesitter]], false)
+-- Config for: nvim-lspconfig
+time([[Config for nvim-lspconfig]], true)
+require'plugins.LSP/lspconfig'
+time([[Config for nvim-lspconfig]], false)
+-- Config for: nvim-tree.lua
+time([[Config for nvim-tree.lua]], true)
+require'plugins.tree'
+time([[Config for nvim-tree.lua]], false)
+-- Config for: alpha-nvim
+time([[Config for alpha-nvim]], true)
+require'plugins.alpha-nvim'
+time([[Config for alpha-nvim]], false)
 -- Config for: gitsigns.nvim
 time([[Config for gitsigns.nvim]], true)
 require'plugins.gitsigns'
@@ -262,46 +281,42 @@ time([[Config for gitsigns.nvim]], false)
 time([[Config for barbar.nvim]], true)
 require'plugins.bartab'
 time([[Config for barbar.nvim]], false)
+-- Config for: indent-blankline.nvim
+time([[Config for indent-blankline.nvim]], true)
+require'plugins.blankline'
+time([[Config for indent-blankline.nvim]], false)
+-- Config for: lsp_signature.nvim
+time([[Config for lsp_signature.nvim]], true)
+require'plugins.LSP/signature'
+time([[Config for lsp_signature.nvim]], false)
 -- Config for: lualine.nvim
 time([[Config for lualine.nvim]], true)
 require'plugins.lualine'
 time([[Config for lualine.nvim]], false)
--- Config for: Comment.nvim
-time([[Config for Comment.nvim]], true)
-try_loadstring("\27LJ\2\n5\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\fComment\frequire\0", "config", "Comment.nvim")
-time([[Config for Comment.nvim]], false)
--- Config for: nvim-lspconfig
-time([[Config for nvim-lspconfig]], true)
-require'plugins.lspconfig'
-time([[Config for nvim-lspconfig]], false)
--- Config for: alpha-nvim
-time([[Config for alpha-nvim]], true)
-require'plugins.alpha-nvim'
-time([[Config for alpha-nvim]], false)
 -- Config for: telescope.nvim
 time([[Config for telescope.nvim]], true)
 require'plugins.telescope'
 time([[Config for telescope.nvim]], false)
--- Config for: nvim-tree.lua
-time([[Config for nvim-tree.lua]], true)
-require'plugins.tree'
-time([[Config for nvim-tree.lua]], false)
 -- Config for: null-ls.nvim
 time([[Config for null-ls.nvim]], true)
-require'plugins.null-ls'
+require'plugins.LSP/null-ls'
 time([[Config for null-ls.nvim]], false)
+-- Config for: scrollbar.nvim
+time([[Config for scrollbar.nvim]], true)
+require'plugins.scrollbar'
+time([[Config for scrollbar.nvim]], false)
 -- Config for: tokyonight.nvim
 time([[Config for tokyonight.nvim]], true)
 require'plugins.tokyonight'
 time([[Config for tokyonight.nvim]], false)
--- Config for: nvim-treesitter
-time([[Config for nvim-treesitter]], true)
-require'plugins.treesitter'
-time([[Config for nvim-treesitter]], false)
 -- Config for: nvim-autopairs
 time([[Config for nvim-autopairs]], true)
 require'plugins.autopairs'
 time([[Config for nvim-autopairs]], false)
+-- Config for: nvim-lsp-installer
+time([[Config for nvim-lsp-installer]], true)
+require'plugins.LSP/lsp-installer'
+time([[Config for nvim-lsp-installer]], false)
 if should_profile then save_profiles() end
 
 end)

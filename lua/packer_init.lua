@@ -49,49 +49,25 @@ return packer.startup(function(use)
   use 'wbthomason/packer.nvim' -- packer can manage itself
 
   -- lualine
-  use {
-    'nvim-lualine/lualine.nvim',
-    requires = { 'kyazdani42/nvim-web-devicons', opt = true },
-    config = lua_path('lualine'),
-  }
+  use { 'nvim-lualine/lualine.nvim', requires = { 'kyazdani42/nvim-web-devicons', opt = true },
+    config = lua_path('lualine'), }
 
   -- Treesitter interface
-  use {
-    'nvim-treesitter/nvim-treesitter',
-    config = lua_path('treesitter')
-  }
+  use { 'nvim-treesitter/nvim-treesitter', config = lua_path('treesitter') }
 
   -- NeovimTree - A File Explorer For Neovim Written In Lua
   use 'kyazdani42/nvim-web-devicons' -- optional, for file icons
-  use {
-    'kyazdani42/nvim-tree.lua',
-    config = lua_path('tree'),
-  }
+  use { 'kyazdani42/nvim-tree.lua', config = lua_path('tree'), }
 
   -- BlankLine
-  use {
-    "lukas-reineke/indent-blankline.nvim",
-    config = lua_path('blankline'),
-  }
+  use { "lukas-reineke/indent-blankline.nvim", config = lua_path('blankline'), }
 
   -- LSP
-  use {
-    'williamboman/nvim-lsp-installer',
-    config = lua_path('lsp-installer'),
-  }
-  use {
-    'neovim/nvim-lspconfig',
-    config = lua_path('lspconfig')
-  }
-  use {
-    "ray-x/lsp_signature.nvim",
-    config = lua_path('signature')
-  }
-  use 'tamago324/nlsp-settings.nvim'
-  use {
-    'jose-elias-alvarez/null-ls.nvim',
-    config = lua_path('null-ls'),
-  }
+  use { 'williamboman/nvim-lsp-installer', config = lua_path('LSP/lsp-installer'), }
+  use { 'neovim/nvim-lspconfig', config = lua_path('LSP/lspconfig') }
+  use { "ray-x/lsp_signature.nvim", config = lua_path('LSP/signature') }
+  use { 'tamago324/nlsp-settings.nvim' }
+  use { 'jose-elias-alvarez/null-ls.nvim', config = lua_path('LSP/null-ls'), }
 
   -- Autocomplete
   use {
@@ -109,59 +85,38 @@ return packer.startup(function(use)
   }
 
   -- AutoPairs
-  use {
-    'windwp/nvim-autopairs',
-    config = lua_path('autopairs'),
-  }
+  use { 'windwp/nvim-autopairs', config = lua_path('autopairs'), }
 
   -- Comment
-  use {
-    'numToStr/Comment.nvim',
-    config = function()
-      require('Comment').setup()
-    end
-  }
+  use { 'numToStr/Comment.nvim', config = function() require('Comment').setup() end, }
 
   -- Telescope
-  use {
-    'nvim-telescope/telescope.nvim',
-    requires = { { 'nvim-lua/plenary.nvim' } },
-    config = lua_path('telescope')
-  }
+  use { 'nvim-telescope/telescope.nvim', requires = { { 'nvim-lua/plenary.nvim' } }, config = lua_path('telescope') }
 
   --Git
-  use {
-    'lewis6991/gitsigns.nvim',
-    config = lua_path('gitsigns')
-  }
+  use { 'lewis6991/gitsigns.nvim', config = lua_path('gitsigns') }
+  use { 'kdheepak/lazygit.nvim' }
 
   -- Twig
   use 'nelsyeung/twig.vim'
 
   -- Dashboard
-  use {
-    'goolord/alpha-nvim',
-    config = lua_path('alpha-nvim'),
-  }
+  use { 'goolord/alpha-nvim', config = lua_path('alpha-nvim'), }
 
   -- Syntax
 
   -- Tab bar
-  use {
-    'romgrk/barbar.nvim',
-    requires = { 'kyazdani42/nvim-web-devicons' },
-    config = lua_path('bartab'),
-  }
+  use { 'romgrk/barbar.nvim', requires = { 'kyazdani42/nvim-web-devicons' }, config = lua_path('bartab'), }
+
+  --Scroll bar
+  use { 'Xuyuanp/scrollbar.nvim', config = lua_path('scrollbar') }
 
   -- Tag viewer
   use 'preservim/tagbar'
 
   -- Theme
   use 'Mofiqul/dracula.nvim'
-  use {
-    'folke/tokyonight.nvim',
-    config = lua_path('tokyonight'),
-  }
+  use { 'folke/tokyonight.nvim', config = lua_path('tokyonight'), }
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
