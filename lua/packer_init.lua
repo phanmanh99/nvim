@@ -84,6 +84,11 @@ return packer.startup(function(use)
     config = lua_path('cmp'),
   }
 
+  -- DAP
+  use { 'Pocco81/DAPInstall.nvim' }
+  use { 'mfussenegger/nvim-dap' }
+  use { 'rcarriga/nvim-dap-ui' }
+
   -- AutoPairs
   use { 'windwp/nvim-autopairs', config = lua_path('autopairs'), }
 
