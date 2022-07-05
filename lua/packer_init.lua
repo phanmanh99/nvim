@@ -115,8 +115,9 @@ return packer.startup(function(use)
   use 'preservim/tagbar'
 
   -- Theme
-  use 'Mofiqul/dracula.nvim'
-  use { 'folke/tokyonight.nvim', config = lua_path('tokyonight'), }
+  use { 'Mofiqul/dracula.nvim' }
+  use { 'matsuuu/pinkmare' }
+  use { 'folke/tokyonight.nvim', }
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
