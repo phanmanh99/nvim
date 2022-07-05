@@ -21,9 +21,9 @@ opt.updatetime = 250 -- Decrease update time
 opt.signcolumn = "yes" -- Always show sign column
 -- opt.clipboard = "unnamedplus" -- Access system clipboard
 opt.expandtab = true -- use space instead of tab by default
-opt.tabstop = 2 -- use space instead of tab by default
-opt.softtabstop = 2 -- use space instead of tab by default
-opt.shiftwidth = 2 -- use space instead of tab by default
+opt.tabstop = 4 -- use space instead of tab by default
+opt.softtabstop = 4 -- use space instead of tab by default
+opt.shiftwidth = 4 -- use space instead of tab by default
 opt.autoindent = true -- use space instead of tab by default
 opt.showmode = false -- Do not need to show the mode. We use the statusline instead.
 opt.showmatch = true -- highlight matching brackets
@@ -39,4 +39,6 @@ opt.completeopt = "menuone,noselect"
 cmd [[
   set noswapfile
   syntax enable
+  set termguicolors
+  colorscheme pinkmare
 ]]
