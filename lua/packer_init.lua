@@ -98,6 +98,9 @@ return packer.startup(function(use)
   -- Telescope
   use { 'nvim-telescope/telescope.nvim', requires = { { 'nvim-lua/plenary.nvim' } }, config = lua_path('telescope') }
 
+  -- Java
+  use { 'natebosch/vim-lsc', }
+
   --Git
   use { 'lewis6991/gitsigns.nvim', config = lua_path('gitsigns') }
   use { 'kdheepak/lazygit.nvim' }

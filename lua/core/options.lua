@@ -39,6 +39,5 @@ opt.completeopt = "menuone,noselect"
 cmd [[
   set noswapfile
   syntax enable
-  set termguicolors
-  colorscheme pinkmare
+  colorscheme tokyonight
 ]]

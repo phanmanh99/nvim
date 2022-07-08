@@ -264,22 +264,23 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/manhphan/.local/share/nvim/site/pack/packer/start/twig.vim",
     url = "https://github.com/nelsyeung/twig.vim"
+  },
+  ["vim-lsc"] = {
+    loaded = true,
+    path = "/Users/manhphan/.local/share/nvim/site/pack/packer/start/vim-lsc",
+    url = "https://github.com/natebosch/vim-lsc"
   }
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: nvim-lspconfig
-time([[Config for nvim-lspconfig]], true)
-require'plugins.LSP/lspconfig'
-time([[Config for nvim-lspconfig]], false)
 -- Config for: nvim-autopairs
 time([[Config for nvim-autopairs]], true)
 require'plugins.autopairs'
 time([[Config for nvim-autopairs]], false)
--- Config for: alpha-nvim
-time([[Config for alpha-nvim]], true)
-require'plugins.alpha-nvim'
-time([[Config for alpha-nvim]], false)
+-- Config for: nvim-treesitter
+time([[Config for nvim-treesitter]], true)
+require'plugins.treesitter'
+time([[Config for nvim-treesitter]], false)
 -- Config for: nvim-tree.lua
 time([[Config for nvim-tree.lua]], true)
 require'plugins.tree'
@@ -308,14 +309,14 @@ time([[Config for lualine.nvim]], false)
 time([[Config for telescope.nvim]], true)
 require'plugins.telescope'
 time([[Config for telescope.nvim]], false)
--- Config for: nvim-treesitter
-time([[Config for nvim-treesitter]], true)
-require'plugins.treesitter'
-time([[Config for nvim-treesitter]], false)
 -- Config for: barbar.nvim
 time([[Config for barbar.nvim]], true)
 require'plugins.bartab'
 time([[Config for barbar.nvim]], false)
+-- Config for: alpha-nvim
+time([[Config for alpha-nvim]], true)
+require'plugins.alpha-nvim'
+time([[Config for alpha-nvim]], false)
 -- Config for: gitsigns.nvim
 time([[Config for gitsigns.nvim]], true)
 require'plugins.gitsigns'
@@ -332,6 +333,10 @@ time([[Config for null-ls.nvim]], false)
 time([[Config for indent-blankline.nvim]], true)
 require'plugins.blankline'
 time([[Config for indent-blankline.nvim]], false)
+-- Config for: nvim-lspconfig
+time([[Config for nvim-lspconfig]], true)
+require'plugins.LSP/lspconfig'
+time([[Config for nvim-lspconfig]], false)
 if should_profile then save_profiles() end
 
 end)
